@@ -1,9 +1,14 @@
 package io.mochadwi.mobilenews.news_source
 
+import android.annotation.SuppressLint
+import android.app.Activity
 import android.app.ProgressDialog
+import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.os.Build
 import android.os.Bundle
+import android.transition.TransitionInflater
 import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
 import android.view.LayoutInflater
@@ -13,6 +18,7 @@ import android.widget.Toast
 import io.mochadwi.mobilenews.domain.data.news_source.SourcesItem
 import io.mochadwi.mobilenews.news_source.adapter.NewsSourceAdapter
 import kotlinx.android.synthetic.main.content_news_source.*
+import org.jetbrains.anko.windowManager
 
 /**
  * Created by mochadwi on 3/13/18.
@@ -53,6 +59,8 @@ class NewsSourceFragment : Fragment(), NewsSourceContract.View {
         } else {
             mPresenter!!.getOfflineNews()
         }
+
+        setupAnimation(context)
     }
 
     override fun setRecyclerView(data: List<SourcesItem?>?) {
@@ -71,6 +79,14 @@ class NewsSourceFragment : Fragment(), NewsSourceContract.View {
 
     override fun showToast(message: String) {
         Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
+    }
+
+    @SuppressLint("NewApi")
+    override fun setupAnimation(ctx: Context) {
+        if (Build.VERSION.SDK_INT >= 21) {
+            val slide = TransitionInflater.from(ctx).inflateTransition(R.transition.slide)
+            activity.window.exitTransition = slide
+        }
     }
 
     override fun showProgress() {

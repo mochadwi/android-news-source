@@ -1,7 +1,10 @@
 package io.mochadwi.mobilenews.news_source
 
+import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.transition.TransitionInflater
 import io.mochadwi.mobilenews.common.util.PublicMethods
 
 /**
@@ -29,5 +32,16 @@ class NewsSourceActivity : AppCompatActivity() {
 
         mPresenter = NewsSourcePresenter(view)
         mPresenter!!.start()
+
+//        setupAnimation()
+    }
+
+    @SuppressLint("NewApi")
+    fun setupAnimation() {
+        if (Build.VERSION.SDK_INT >= 21) {
+            val slide = TransitionInflater.from(applicationContext)
+                                            .inflateTransition(R.transition.slide)
+            window.exitTransition = slide
+        }
     }
 }

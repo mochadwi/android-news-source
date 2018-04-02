@@ -1,12 +1,14 @@
 package io.mochadwi.mobilenews.news_source.adapter
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.os.Build
+import android.support.v4.app.ActivityOptionsCompat
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import io.mochadwi.mobilenews.articles.ArticlesActivity
 import io.mochadwi.mobilenews.domain.data.news_source.SourcesItem
-import io.mochadwi.mobilenews.news_source.NewsSourceActivity
 import io.mochadwi.mobilenews.news_source.R
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_news_source.*
@@ -20,8 +22,17 @@ class NewsSourceViewHolder(override val containerView: View) :
     fun bind(item: SourcesItem, ctx: Context) = with(containerView) {
         cv_item.setOnClickListener {
             val i = Intent(ctx, ArticlesActivity::class.java)
+            val optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                                                        ctx as Activity,
+                                                        containerView,
+                                                        "")
             i.putExtra("sources", item.toString())
-            ctx.startActivity(i)
+
+            if (Build.VERSION.SDK_INT >= 16) {
+                ctx.startActivity(i, optionsCompat.toBundle())
+            } else {
+                ctx.startActivity(i)
+            }
         }
 
         txt_title.text = item.name
