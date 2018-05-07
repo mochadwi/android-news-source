@@ -4,7 +4,7 @@ import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import io.mochadwi.mobilenews.domain.data.news_source.SourcesItem
+import io.mochadwi.mobilenews.domain.model.news_source.SourcesItem
 import io.mochadwi.mobilenews.news_source.R
 
 /**

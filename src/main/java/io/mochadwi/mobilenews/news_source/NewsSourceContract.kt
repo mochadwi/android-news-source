@@ -1,9 +1,9 @@
 package io.mochadwi.mobilenews.news_source
 
 import android.content.Context
-import io.mochadwi.mobilenews.common.BasePresenter
-import io.mochadwi.mobilenews.common.BaseView
-import io.mochadwi.mobilenews.domain.data.news_source.SourcesItem
+import io.mochadwi.mobilenews.data.BasePresenter
+import io.mochadwi.mobilenews.data.BaseView
+import io.mochadwi.mobilenews.domain.model.news_source.SourcesItem
 
 /**
  * Created by mochadwi on 3/13/18.

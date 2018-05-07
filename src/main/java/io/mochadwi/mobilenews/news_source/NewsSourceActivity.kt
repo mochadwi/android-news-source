@@ -5,7 +5,7 @@ import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.transition.TransitionInflater
-import io.mochadwi.mobilenews.common.util.PublicMethods
+import io.mochadwi.mobilenews.util.PublicMethods
 
 /**
  * Created by mochadwi on 3/13/18.

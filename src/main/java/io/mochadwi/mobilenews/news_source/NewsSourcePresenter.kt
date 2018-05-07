@@ -1,9 +1,9 @@
 package io.mochadwi.mobilenews.news_source
 
-import io.mochadwi.mobilenews.domain.data.news_source.NewsSourceModel
-import io.mochadwi.mobilenews.domain.data.news_source.SourcesItem
-import io.mochadwi.mobilenews.domain.network.RESTClient
-import io.mochadwi.mobilenews.domain.network.RESTGenerator
+import io.mochadwi.mobilenews.data.network.RESTClient
+import io.mochadwi.mobilenews.data.network.RESTGenerator
+import io.mochadwi.mobilenews.domain.model.news_source.NewsSourceModel
+import io.mochadwi.mobilenews.domain.model.news_source.SourcesItem
 import io.realm.Realm
 import retrofit2.Call
 import retrofit2.Callback
@@ -74,7 +74,7 @@ class NewsSourcePresenter(private val mView: NewsSourceContract.View) : NewsSour
                 } else {
                     mView.hideProgress()
 
-                    mView.showToast("Error get data from database")
+                    mView.showToast("Error get model from database")
                 }
             }
         }

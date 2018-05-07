@@ -8,7 +8,7 @@ import android.support.v4.app.ActivityOptionsCompat
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import io.mochadwi.mobilenews.articles.ArticlesActivity
-import io.mochadwi.mobilenews.domain.data.news_source.SourcesItem
+import io.mochadwi.mobilenews.domain.model.news_source.SourcesItem
 import io.mochadwi.mobilenews.news_source.R
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_news_source.*
